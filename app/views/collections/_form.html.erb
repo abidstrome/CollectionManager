@@ -1,0 +1,120 @@
+<%= form_with(model: collection, local: false) do |form| %>
+  <%= render 'layouts/errors', object: collection %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :image %>
+    <%= form.file_field :image, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, @categories, :id, :name, { prompt: "Select Category" }, { class: 'form-control' } %>
+  </div>
+
+  
+  <div class="form-group">
+    <%= form.check_box :custom_string1_state %>
+    <%= form.label :custom_string1_state, "Enable String Field 1" %>
+    <%= form.text_field :custom_string1_name, placeholder: "Field Name", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.check_box :custom_string2_state %>
+    <%= form.label :custom_string2_name, "Enable String Field 2" %>
+    <%= form.text_field :custom_string2_name, placeholder: "Field Name", class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.check_box :custom_string3_state %>
+    <%= form.label :custom_string3_name, "Enable String Field 3" %>
+    <%= form.text_field :custom_string3_name, placeholder: "Field Name", class:'form-control' %>
+  </div>
+
+  
+  <div class="form-group">
+    <%= form.check_box :custom_text1_state %>
+    <%= form.label :custom_text1_name, "Enable Text Field 1" %>
+    <%= form.text_field :custom_text1_name, placeholder: "Field Name", class: 'form-control' %>
+  </div>
+
+ <div class="form-group">
+    <%= form.check_box :custom_text2_state %>
+    <%= form.label :custom_text2_name, "Enable Text Field 2" %>
+    <%= form.text_field :custom_text2_name, placeholder: "Field Name", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.check_box :custom_text3_state %>
+    <%= form.label :custom_text3_name, "Enable Text Field 3" %>
+    <%= form.text_field :custom_text3_name, placeholder: "Field Name", class: 'form-control' %>
+  </div>
+ 
+  <div class="form-group">
+    <%= form.check_box :custom_int1_state %>
+    <%= form.label :custom_int1_name, "Enable Integer Field 1" %>
+    <%= form.text_field :custom_int1_name, placeholder: "Field Name", class: 'form-control' %>
+  </div>
+
+   <div class="form-group">
+    <%= form.check_box :custom_int2_state %>
+    <%= form.label :custom_int2_name, "Enable Integer Field 2" %>
+    <%= form.text_field :custom_int2_name, placeholder: "Field Name", class: 'form-control' %>
+  </div>
+
+ <div class="form-group">
+    <%= form.check_box :custom_int3_state %>
+    <%= form.label :custom_int3_name, "Enable Integer Field 3" %>
+    <%= form.text_field :custom_int3_name, placeholder: "Field Name", class: 'form-control' %>
+  </div>
+
+  
+  <div class="form-group">
+    <%= form.check_box :custom_bool1_state %>
+    <%= form.label :custom_bool1_name, "Enable Boolean Field 1" %>
+    <%= form.text_field :custom_bool1_name, placeholder: "Field Name", class:'form-control'  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.check_box :custom_bool2_state %>
+    <%= form.label :custom_bool2_name, "Enable Boolean Field 2" %>
+    <%= form.text_field :custom_bool2_name, placeholder: "Field Name", class:'form-control'  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.check_box :custom_bool3_state %>
+    <%= form.label :custom_bool3_name, "Enable Boolean Field 3" %>
+    <%= form.text_field :custom_bool3_name, placeholder: "Field Name", class:'form-control'  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.check_box :custom_date1_state %>
+    <%= form.label :custom_date1_name, "Enable Date Field 1" %>
+    <%= form.text_field :custom_date1_name, placeholder: "Field Name", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.check_box :custom_date2_state %>
+    <%= form.label :custom_date2_name, "Enable Date Field 2" %>
+    <%= form.text_field :custom_date2_name, placeholder: "Field Name", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.check_box :custom_date3_state %>
+    <%= form.label :custom_date3_name, "Enable Date Field 3" %>
+    <%= form.text_field :custom_date3_name, placeholder: "Field Name", class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

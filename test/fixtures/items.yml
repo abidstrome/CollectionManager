@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  tags: MyString
+  collection: one
+  custom_string1: MyString
+  custom_string2: MyString
+  custom_string3: MyString
+  custom_int1: 1
+  custom_int2: 1
+  custom_int3: 1
+
+two:
+  name: MyString
+  tags: MyString
+  collection: two
+  custom_string1: MyString
+  custom_string2: MyString
+  custom_string3: MyString
+  custom_int1: 1
+  custom_int2: 1
+  custom_int3: 1

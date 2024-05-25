@@ -1,0 +1,63 @@
+<h1><%= @item.name %></h1>
+<p>Tags: <%= @item.tags %></p>
+
+<% if @collection.custom_string1_state %>
+  <p><%= @collection.custom_string1_name %>: <%= @item.custom_string1 %></p>
+<% end %>
+<% if @collection.custom_string2_state %>
+  <p><%= @collection.custom_string2_name %>: <%= @item.custom_string2 %></p>
+<% end %>
+<% if @collection.custom_string3_state %>
+  <p><%= @collection.custom_string3_name %>: <%= @item.custom_string3 %></p>
+<% end %>
+
+<% if @collection.custom_text1_state %>
+  <p><%= @collection.custom_text1_name %>: <%= @item.custom_text1 %></p>
+<% end %>
+<% if @collection.custom_text2_state %>
+  <p><%= @collection.custom_text2_name %>: <%= @item.custom_text2 %></p>
+<% end %>
+<% if @collection.custom_text3_state %>
+  <p><%= @collection.custom_text3_name %>: <%= @item.custom_text3 %></p>
+<% end %>
+
+<% if @collection.custom_int1_state %>
+  <p><%= @collection.custom_int1_name %>: <%= @item.custom_int1 %></p>
+<% end %>
+<% if @collection.custom_int2_state %>
+  <p><%= @collection.custom_int2_name %>: <%= @item.custom_int2 %></p>
+<% end %>
+<% if @collection.custom_int3_state %>
+  <p><%= @collection.custom_int3_name %>: <%= @item.custom_int3 %></p>
+<% end %>
+
+<% if @collection.custom_bool1_state %>
+  <p><%= @collection.custom_bool1_name %>: <%= @item.custom_bool1 ? 'Yes' : 'No' %></p>
+<% end %>
+<% if @collection.custom_bool2_state %>
+  <p><%= @collection.custom_bool2_name %>: <%= @item.custom_bool2 ? 'Yes' : 'No' %></p>
+<% end %>
+<% if @collection.custom_bool3_state %>
+  <p><%= @collection.custom_bool3_name %>: <%= @item.custom_bool3 ? 'Yes' : 'No' %></p>
+<% end %>
+
+<% if @collection.custom_date1_state %>
+  <p><%= @collection.custom_date1_name %>: <%= @item.custom_date1 %></p>
+<% end %>
+<% if @collection.custom_date2_state %>
+  <p><%= @collection.custom_date2_name %>: <%= @item.custom_date2 %></p>
+<% end %>
+<% if @collection.custom_date3_state %>
+  <p><%= @collection.custom_date3_name %>: <%= @item.custom_date3 %></p>
+<% end %>
+
+<h2>Comments</h2>
+<%= render 'comments/form', item: @item %>
+<ul>
+  <% @comments.each do |comment| %>
+    <%= render 'comments/comment', comment: comment %>
+  <% end %>
+</ul>
+
+<h2>Likes</h2>
+<%= render 'likes/like_button', item: @item %>

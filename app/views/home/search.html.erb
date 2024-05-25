@@ -1,0 +1,11 @@
+<h1>Search Results for "<%= @query %>"</h1>
+
+<% if @items.any? %>
+  <ul>
+    <% @items.each do |item| %>
+      <li><%= link_to item.name, collection_item_path(item.collection, item) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No items found.</p>
+<% end %>

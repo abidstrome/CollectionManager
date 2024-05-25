@@ -1,0 +1,13 @@
+<h1><%= @user.email %>'s Collections</h1>
+
+<%= link_to 'New Collection', new_user_collection_path(@user), class: 'btn btn-primary' %>
+
+<ul>
+  <% @collections.each do |collection| %>
+    <li>
+      <%= link_to collection.name, collection_path(collection) %>
+      <%= link_to 'Edit', edit_user_collection_path(@user, collection), class: 'btn btn-secondary' %>
+      <%= link_to 'Delete', user_collection_path(@user, collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,13 @@
+<h1>New Category</h1>
+<%= form_with(model: @category, local: true) do |form| %>
+    <%= render 'shared/errors', object: @category %>
+
+    <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit 'Create Category', class: 'btn btn-primary' %>
+    </div>
+<% end %>

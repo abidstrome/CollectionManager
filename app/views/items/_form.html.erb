@@ -1,0 +1,134 @@
+<%= form_with(model: [collection, item], local: false) do |form| %>
+  <%= render 'layouts/errors', object: item %>
+
+  <div class="from-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :tags %>
+    <%= form.text_field :tags, data: { role: "tagsinput" }, class: 'form-control' %>
+  </div>
+
+  <!-- Custom String Fields -->
+  <% if collection.custom_string1_state %>
+    <div class="form-group">
+      <%= form.label :custom_string1, collection.custom_string1_name %>
+      <%= form.text_field :custom_string1, class: 'form-control' %>
+    </div>
+  <% end %>
+  <% if collection.custom_string2_state %>
+    <div class="form-group"">
+      <%= form.label :custom_string2, collection.custom_string2_name %>
+      <%= form.text_field :custom_string2, class: 'form-control' %>
+    </div>
+  <% end %>
+  <% if collection.custom_string3_state %>
+    <div class="form-group">
+      <%= form.label :custom_string3, collection.custom_string3_name %>
+      <%= form.text_field :custom_string3, class: 'form-control' %>
+    </div>
+  <% end %>
+
+  <!-- Custom Text Fields -->
+  <% if collection.custom_text1_state %>
+    <div class="form-group">
+      <%= form.label :custom_text1, collection.custom_text1_name %>
+      <%= form.text_area :custom_text1, class: 'form-control' %>
+    </div>
+  <% end %>
+  <% if collection.custom_text2_state %>
+    <div class="form-group">
+      <%= form.label :custom_text2, collection.custom_text2_name %>
+      <%= form.text_area :custom_text2, class: 'form-control' %>
+    </div>
+  <% end %>
+  <% if collection.custom_text3_state %>
+    <div class="form-group">
+      <%= form.label :custom_text3, collection.custom_text3_name %>
+      <%= form.text_area :custom_text3, class: 'form-control' %>
+    </div>
+  <% end %>
+
+  <!-- Custom Integer Fields -->
+  <% if collection.custom_int1_state %>
+    <div class="form-group">
+      <%= form.label :custom_int1, collection.custom_int1_name %>
+      <%= form.number_field :custom_int1, class:'form-control' %>
+    </div>
+  <% end %>
+  <% if collection.custom_int2_state %>
+    <div class="form-group">
+      <%= form.label :custom_int2, collection.custom_int2_name %>
+      <%= form.number_field :custom_int2, class:'form-control' %>
+    </div>
+  <% end %>
+  <% if collection.custom_int3_state %>
+    <div class="form-group">
+      <%= form.label :custom_int3, collection.custom_int3_name %>
+      <%= form.number_field :custom_int3, class:'form-control' %>
+    </div>
+  <% end %>
+
+  <!-- Custom Boolean Fields -->
+  <% if collection.custom_bool1_state %>
+    <div class="form-group">
+      <%= form.label :custom_bool1, collection.custom_bool1_name %>
+      <%= form.check_box :custom_bool1, class:'form-control' %>
+    </div>
+  <% end %>
+  <% if collection.custom_bool2_state %>
+    <div class="form-group">
+      <%= form.label :custom_bool2, collection.custom_bool2_name %>
+      <%= form.check_box :custom_bool2, class:'form-control' %>
+    </div>
+  <% end %>
+  <% if collection.custom_bool3_state %>
+    <div class="form-group">
+      <%= form.label :custom_bool3, collection.custom_bool3_name %>
+      <%= form.check_box :custom_bool3, class:'form-control' %>
+    </div>
+  <% end %>
+
+  <!-- Custom Date Fields -->
+  <% if collection.custom_date1_state %>
+    <div class="form-group">
+      <%= form.label :custom_date1, collection.custom_date1_name %>
+      <%= form.date_select :custom_date1, class:'form-control' %>
+    </div>
+  <% end %>
+  <% if collection.custom_date2_state %>
+    <div class="form-group">
+      <%= form.label :custom_date2, collection.custom_date2_name %>
+      <%= form.date_select :custom_date2, class:'form-control' %>
+    </div>
+  <% end %>
+  <% if collection.custom_date3_state %>
+    <div class="form-group">
+      <%= form.label :custom_date3, collection.custom_date3_name %>
+      <%= form.date_select :custom_date3, class:'form-control' %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit class:'btn btn-primary' %>
+  </div>
+<% end %>
+
+<script>
+  $(document).ready(function() {
+    $('[data-role="tagsinput"]').selectize({
+      persist: false,
+      create: true,
+      render: {
+        option: function(data, escape) {
+          return '<div>' + escape(data.text) + '</div>';
+        }
+      },
+      onInitialize: function() {
+        this.addOption({text: 'example_tag', value: 'example_tag'});
+      }
+    });
+  });
+</script>
