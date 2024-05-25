@@ -3,7 +3,7 @@ class HomeController < ApplicationController
         @collections = policy_scope(Collection)
         @latest_items = Item.order(created_at: :desc).limit(5)
         @top_collections = Collection.joins(:items).group('collections.id').order('COUNT(items.id) DESC').limit(5)
-        # # @tags = ActsAsTaggableOn::Tag.most_used(10)
+        @tags = ActsAsTaggableOn::Tag.most_used(10)
           
     end
 

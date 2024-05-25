@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
 
     def show
         authorize @item
-        @comments = @items.comments
+        @comments = @item.comments
     end
 
     def new
@@ -63,7 +63,7 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-        params.require(:item).permit(:name, :tags, :custom_string1,
+        params.require(:item).permit(:name, :tag_list, :custom_string1,
                                      :custom_string2, :custom_string3, :custom_text1,
                                      :custom_text2, :custom_text3, :custom_int1, :custom_int2,
                                      :custom_int3, :custom_bool1, :custom_bool2, :custom_bool3,

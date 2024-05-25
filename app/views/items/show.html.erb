@@ -1,5 +1,5 @@
 <h1><%= @item.name %></h1>
-<p>Tags: <%= @item.tags %></p>
+<p>Tags: <%= @item.tag_list.join(', ') %></p>
 
 <% if @collection.custom_string1_state %>
   <p><%= @collection.custom_string1_name %>: <%= @item.custom_string1 %></p>
@@ -53,6 +53,7 @@
 
 <h2>Comments</h2>
 <%= render 'comments/form', item: @item %>
+
 <ul>
   <% @comments.each do |comment| %>
     <%= render 'comments/comment', comment: comment %>

@@ -7,11 +7,11 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :tags %>
-    <%= form.text_field :tags, data: { role: "tagsinput" }, class: 'form-control' %>
+    <%= form.label :tag_list, "Tags" %>
+    <%= form.text_field :tag_list, class: 'form-control' %>
   </div>
 
-  <!-- Custom String Fields -->
+
   <% if collection.custom_string1_state %>
     <div class="form-group">
       <%= form.label :custom_string1, collection.custom_string1_name %>
@@ -31,7 +31,6 @@
     </div>
   <% end %>
 
-  <!-- Custom Text Fields -->
   <% if collection.custom_text1_state %>
     <div class="form-group">
       <%= form.label :custom_text1, collection.custom_text1_name %>
@@ -51,7 +50,6 @@
     </div>
   <% end %>
 
-  <!-- Custom Integer Fields -->
   <% if collection.custom_int1_state %>
     <div class="form-group">
       <%= form.label :custom_int1, collection.custom_int1_name %>
@@ -71,7 +69,6 @@
     </div>
   <% end %>
 
-  <!-- Custom Boolean Fields -->
   <% if collection.custom_bool1_state %>
     <div class="form-group">
       <%= form.label :custom_bool1, collection.custom_bool1_name %>
@@ -91,7 +88,6 @@
     </div>
   <% end %>
 
-  <!-- Custom Date Fields -->
   <% if collection.custom_date1_state %>
     <div class="form-group">
       <%= form.label :custom_date1, collection.custom_date1_name %>

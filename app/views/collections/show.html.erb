@@ -34,7 +34,7 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= link_to item.name, collection_item_path(@collection, item) %></td>
-        <td><%= item.tags %></td>
+        <td><%= item.tag_list.join(', ') %></td>
         <td>
           <% if @collection.custom_string1_state %>
             <p><%= @collection.custom_string1_name %>: <%= item.custom_string1 %></p>
