@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
     def destroy
         authorize @item
         @item.destroy
-        redirect_to collection_items_path(@collection), notice: 'Item deleted successfully.'
+        redirect_to collection_path(@collection), notice: 'Item deleted successfully.'
     end
 
     private

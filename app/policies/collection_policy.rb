@@ -9,7 +9,7 @@ class CollectionPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present? && user.user? || user.admin?
+    user.present? && (user.user? || user.admin?)
   end
 
   def update?
@@ -26,11 +26,12 @@ class CollectionPolicy < ApplicationPolicy
     def resolve
       if user&.admin?
         scope.all
-      elsif
-        scope.where(user: user)
+      elsif user.present?
+        scope.all
       else
-        scope.none
+        scope.all
       end
     end
   end
+
 end

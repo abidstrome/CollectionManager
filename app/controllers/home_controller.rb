@@ -10,12 +10,11 @@ class HomeController < ApplicationController
     def search
         @query = params[:query]
         if @query.present?
-            @items = Item.where('name ILIKE ? OR tags ILIKE ?', "%#{@query}%", "%#{@query}%")
+          @items = Item.search_by_name_comments_and_tags(@query)
         else
-            @items = Item.none
-         end
-
-       @items = policy_scope(@items)
+          @items = Item.none
+        end
+       @items = policy_scope(@items) if user_signed_in?
     end
     
     

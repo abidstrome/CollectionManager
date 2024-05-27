@@ -27,9 +27,9 @@ class ItemPolicy < ApplicationPolicy
       if user&.admin?
         scope.all
       elsif user
-        scope.joins(:collection).where(collections: { user_id: user.id })
+        scope.all
       else
-        scope.none
+        scope.all
       end
     end
   end

@@ -1,8 +1,8 @@
 <% if user_signed_in? %>
   <% if current_user.liked?(@item) %>
-    <%= button_to 'Unlike', item_like_path(@item), method: :delete, class: 'btn btn-danger' %>
+    <%= button_to 'Unlike', collection_item_like_path(@collection, @item, @item.likes.find_by(user: current_user)), method: :delete, class: 'btn btn-danger' %>
   <% else %>
-    <%= button_to 'Like', item_likes_path(@item), class: 'btn btn-primary' %>
+    <%= button_to 'Like', collection_item_likes_path(@collection, @item), class: 'btn btn-primary' %>
   <% end %>
 <% end %>
 <p><%= @item.likes.count %> likes</p>

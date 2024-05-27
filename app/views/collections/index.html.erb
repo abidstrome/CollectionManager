@@ -1,16 +1,22 @@
 <h1>Collections</h1>
 
-<%= link_to 'New Collection', new_user_collection_path(current_user), class: 'btn btn-primary' %>
+<% if user_signed_in? %>
+  <%= link_to 'New Collection', new_user_collection_path(current_user), class: 'btn btn-primary' %>
+<% end%>
 
 <ul>
-  <% @collections.each do |collection| %>
-    <li>
-      <%= link_to collection.name, collection_path(collection) %>
-      <% if user_signed_in? && (collection.user == current_user || current_user.admin?) %>
-        <%= link_to 'Edit', edit_collection_path(collection), class: 'btn btn-secondary' %>
-        <%= link_to 'Delete', collection, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-      <% end %>
-    </li>
+  <%if @collections.present? %>
+   <% @collections.each do |collection| %>
+     <li>
+       <%= link_to collection.name, collection_path(collection) %>
+       <% if user_signed_in? && (collection.user == current_user || current_user.admin?) %>
+         <%= link_to 'Edit', edit_collection_path(collection), class: 'btn btn-secondary' %>
+         <%= link_to 'Delete', collection, method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+       <% end %>
+     </li>
+   <% end %>
+  <% else %>
+    <li> No collections found </li>
   <% end %>
 </ul>
 

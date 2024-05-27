@@ -1,7 +1,7 @@
 <li>
-  <p><strong><%= comment.user.email %>:</strong></p>
+  <p><strong><%= comment.user ? comment.user.email : 'Unknown User' %>:</strong></p>
   <p><%= comment.body %></p>
   <% if comment.user == current_user %>
-    <%= link_to 'Delete', [comment.item, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+     <%= link_to 'Delete', collection_item_comment_path(@collection, @item, comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
   <% end %>
 </li>

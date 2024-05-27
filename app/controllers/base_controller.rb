@@ -1,5 +1,5 @@
 class BaseController < ActionController::Base
-    include Pundit
+    include Pundit::Authorization
   
     after_action :verify_authorized, unless: :skip_authorization?
     after_action :verify_policy_scoped_if_needed, unless: :skip_policy_scope?

@@ -6,8 +6,10 @@
   <% @collections.each do |collection| %>
     <li>
       <%= link_to collection.name, collection_path(collection) %>
-      <%= link_to 'Edit', edit_user_collection_path(@user, collection), class: 'btn btn-secondary' %>
-      <%= link_to 'Delete', user_collection_path(@user, collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      <% if collection.user == current_user || current_user.admin? %>
+        <%= link_to 'Edit', edit_user_collection_path(@user, collection), class: 'btn btn-secondary' %>
+        <%= link_to 'Delete', user_collection_path(@user, collection), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      <% end %>
     </li>
   <% end %>
 </ul>

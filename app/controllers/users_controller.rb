@@ -3,8 +3,16 @@ class UsersController < ApplicationController
     before_action :set_user
 
     def show
+        @user = User.find(params[:id])
         authorize @user
-        @collections = @user.collections
+
+        @collections = if @user== current_user
+                        @user.collections
+                       else
+                        policy_scope(Collection)
+                       end
+                       
+
     end
 
     private

@@ -2,13 +2,13 @@
 <p><%= markdown(@collection.description) %></p>
 <%= image_tag @collection.image_url if @collection.image_url.present? %>
 
-<% if current_user == @collection.user || current_user.admin? %>
+<% if user_signed_in? && (current_user == @collection.user || current_user.admin?) %>
   <%= link_to 'Edit Collection', edit_collection_path(@collection), class: 'btn btn-secondary' %>
-  <%= link_to 'Delete Collection', collection_path(@collection), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <%= link_to 'Delete Collection', collection_path(@collection), method: :delete,data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
 <% end %>
 
 <h2>Items</h2>
-<%= link_to 'Add Item', new_collection_item_path(@collection), class: 'btn btn-primary' %>
+<%= link_to 'Add Item', new_collection_item_path(@collection) if user_signed_in? %>
 
 <%= form_with(url: collection_path(@collection), method: :get, local: true) do |form| %>
   <div class="form-group">
@@ -27,7 +27,9 @@
     <tr>
       <th>Name</th>
       <th>Tags</th>
-      <th>Actions</th>
+      <% if user_signed_in? && (current_user == @collection.user || current_user.admin?) %>
+        <th>Actions</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -45,6 +47,16 @@
           <% if @collection.custom_string3_state %>
             <p><%= @collection.custom_string3_name %>: <%= item.custom_string3 %></p>
           <% end %>
+          <% if @collection.custom_text1_state %>
+            <p><%= @collection.custom_text1_name %>: <%= item.custom_text1 %></p>
+          <% end %>
+          <% if @collection.custom_text2_state %>
+            <p><%= @collection.custom_text2_name %>: <%= item.custom_text2 %></p>
+          <% end %>
+          <% if @collection.custom_text3_state %>
+            <p><%= @collection.custom_text3_name %>: <%= item.custom_text3 %></p>
+          <% end %>
+
           <% if @collection.custom_date1_state %>
             <p><%= @collection.custom_date1_name %>: <%= item.custom_date1 %></p>
           <% end %>
@@ -63,9 +75,9 @@
           <% if @collection.custom_int3_state %>
             <p><%= @collection.custom_int3_name %>: <%= item.custom_int3 %></p>
           <% end %>
-          <% if current_user == @collection.user || current_user.admin? %>
+          <% if user_signed_in? && (current_user == @collection.user || current_user.admin?) %>
             <%= link_to 'Edit', edit_collection_item_path(@collection, item), class: 'btn btn-secondary' %>
-            <%= link_to 'Delete', collection_item_path(@collection, item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+            <%= link_to 'Delete', collection_item_path(@collection, item), method: :delete,data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
           <% end %>
         </td>
       </tr>

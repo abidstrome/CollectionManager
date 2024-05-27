@@ -51,14 +51,16 @@
   <p><%= @collection.custom_date3_name %>: <%= @item.custom_date3 %></p>
 <% end %>
 
+<h2>Likes</h2>
+<%= render 'likes/like_button', collection: @collection, item: @item %>
+
 <h2>Comments</h2>
-<%= render 'comments/form', item: @item %>
+<%= render 'comments/form', collection: @collection, item: @item %>
 
 <ul>
   <% @comments.each do |comment| %>
-    <%= render 'comments/comment', comment: comment %>
+    <%= render 'comments/comment', comment: comment, collection: @collection, item: @item %>
   <% end %>
 </ul>
 
-<h2>Likes</h2>
-<%= render 'likes/like_button', item: @item %>
+

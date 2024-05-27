@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <%= form_with(model: [ @item, @item.comments.build ], local: true) do |form| %>
+  <%= form_with(model: [ @collection, @item, @item.comments.build ], local: true) do |form| %>
     <div class="field">
       <%= form.label :body %>
       <%= form.text_area :body %>

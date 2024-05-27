@@ -6,12 +6,14 @@ class User < ApplicationRecord
   def set_default_role
        self.role ||= :user
   end
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   has_many :collections
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_items, through: :likes, source: :item
 
   def active_for_authentication?
     super && !blocked?
@@ -19,6 +21,12 @@ class User < ApplicationRecord
 
   def inactive_message
     !blocked? ? super : :blocked
+  end
+
+  def liked?(item)
+
+    liked_items.include?(item)
+
   end
  
 end

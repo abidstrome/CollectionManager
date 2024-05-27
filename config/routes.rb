@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
-  get 'search', to: 'home#search'
+  get 'search', to: 'home#search', as: 'search'
 
   devise_for :users
 
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :collections, except: [:index, :show]
   end
 
-  resources :collections, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+  resources :collections do
     resources :items do
       resources :comments, only: [:create, :destroy]
       resources :likes, only: [:create, :destroy]
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :categories
+  resources :tags, only: :index
 
   namespace :admin do
     resources :users, only: [:index, :destroy] do

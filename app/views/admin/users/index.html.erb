@@ -17,16 +17,16 @@
         <td><%= user.blocked? ? 'Blocked' : 'Active' %></td>
         <td>
           <% if user.blocked? %>
-            <%= link_to 'Unblock', unblock_admin_user_path(user), method: :patch %>
+            <%= link_to 'Unblock', unblock_admin_user_path(user), method: :patch, data: { turbo_method: :patch }, class: 'btn btn-warning' %>
           <% else %>
-            <%= link_to 'Block', block_admin_user_path(user), method: :patch %>
+            <%= link_to 'Block', block_admin_user_path(user), method: :patch, data: { turbo_method: :patch }, class: 'btn btn-primary' %>
           <% end %>
           <% if user.admin? %>
-            <%= link_to 'Remove Admin', remove_admin_admin_user_path(user), method: :patch %>
+            <%= link_to 'Remove Admin', remove_admin_admin_user_path(user), method: :patch, data: { turbo_method: :patch }, class: 'btn btn-warning' %>
           <% else %>
-            <%= link_to 'Make Admin', make_admin_admin_user_path(user), method: :patch %>
+            <%= link_to 'Make Admin', make_admin_admin_user_path(user), method: :patch,  data: { turbo_method: :patch }, class: 'btn btn-primary' %>
           <% end %>
-          <%= link_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Delete', admin_user_path(user), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
         </td>
       </tr>
     <% end %>
