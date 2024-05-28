@@ -71,7 +71,8 @@ class ItemsController < ApplicationController
     end
 
     def authorize_user!
-        redirect_to collection_items_path(@collection), alert: 'Not authorized' unless current_user == @collection.user
+        authorize @item
+        # redirect_to collection_items_path(@collection), alert: 'Not authorized' unless current_user == @collection.user
     end
 
                                     

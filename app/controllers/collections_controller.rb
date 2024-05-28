@@ -39,6 +39,7 @@ class CollectionsController < ApplicationController
 
     def update
         authorize @collection
+        puts "Updating collection with params: #{collection_params.inspect}"
         if @collection.update(collection_params)
             redirect_to @collection, notice: 'Collection updated successfully'
         else
@@ -82,7 +83,8 @@ class CollectionsController < ApplicationController
       end
 
     def authorize_user!
-        redirect_to collections_path, alert: 'Not authorized' unless current_user == @collection.user
+        # redirect_to collections_path, alert: 'Not authorized' unless current_user == @collection.user
+        authorize @collection
     end
 
 end

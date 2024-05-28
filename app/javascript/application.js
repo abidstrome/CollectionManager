@@ -2,7 +2,7 @@
 
 import { Turbo } from "@hotwired/turbo-rails";
 import "controllers"
-import "jquery"
+import "jquery" 
 
 
 
@@ -10,7 +10,7 @@ import "jquery"
 
 Turbo.start();
 
-  $(document).on("turbo:load", function() {
+document.addEventListener('turbo:load', () => {
     const tagInputs = document.querySelectorAll('[data-role="tagsinput"]');
     tagInputs.forEach((input) => {
       new Tagify(input, {

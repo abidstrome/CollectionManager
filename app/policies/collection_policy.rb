@@ -27,7 +27,7 @@ class CollectionPolicy < ApplicationPolicy
       if user&.admin?
         scope.all
       elsif user.present?
-        scope.all
+        scope.where(user: user)
       else
         scope.all
       end

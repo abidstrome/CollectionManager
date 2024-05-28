@@ -11,9 +11,5 @@ class Item < ApplicationRecord
                    against: [:name],
                    associated_against: { tags: :name, comments: :body},
                    using: { tsearch: { prefix: true } }
-
-  attr_accessor :custom_text1, :custom_text2, :custom_text3,
-                :custom_bool1, :custom_bool2, :custom_bool3,
-                :custom_date1, :custom_date2, :custom_date3
                 
 end

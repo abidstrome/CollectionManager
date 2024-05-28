@@ -72,38 +72,38 @@
   <% if collection.custom_bool1_state %>
     <div class="form-group">
       <%= form.label :custom_bool1, collection.custom_bool1_name %>
-      <%= form.check_box :custom_bool1, class:'form-control' %>
+      <%= form.check_box :custom_bool1 %>
     </div>
   <% end %>
   <% if collection.custom_bool2_state %>
     <div class="form-group">
       <%= form.label :custom_bool2, collection.custom_bool2_name %>
-      <%= form.check_box :custom_bool2, class:'form-control' %>
+      <%= form.check_box :custom_bool2 %>
     </div>
   <% end %>
   <% if collection.custom_bool3_state %>
     <div class="form-group">
       <%= form.label :custom_bool3, collection.custom_bool3_name %>
-      <%= form.check_box :custom_bool3, class:'form-control' %>
+      <%= form.check_box :custom_bool3 %>
     </div>
   <% end %>
 
   <% if collection.custom_date1_state %>
     <div class="form-group">
       <%= form.label :custom_date1, collection.custom_date1_name %>
-      <%= form.date_select :custom_date1, class:'form-control' %>
+      <%= form.date_field :custom_date1, class:'form-control' %>
     </div>
   <% end %>
   <% if collection.custom_date2_state %>
     <div class="form-group">
       <%= form.label :custom_date2, collection.custom_date2_name %>
-      <%= form.date_select :custom_date2, class:'form-control' %>
+      <%= form.date_field :custom_date2, class:'form-control' %>
     </div>
   <% end %>
   <% if collection.custom_date3_state %>
     <div class="form-group">
       <%= form.label :custom_date3, collection.custom_date3_name %>
-      <%= form.date_select :custom_date3, class:'form-control' %>
+      <%= form.date_field :custom_date3, class:'form-control' %>
     </div>
   <% end %>
 

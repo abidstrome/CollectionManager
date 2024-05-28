@@ -62,5 +62,6 @@
     <%= render 'comments/comment', comment: comment, collection: @collection, item: @item %>
   <% end %>
 </ul>
+<%= link_to 'Back', collection_items_path(@collection, @item) %>
 
 
