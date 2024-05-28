@@ -1,5 +1,5 @@
 <h1>Items in <%= @collection.name %> </h1>
-<% if user_signed_in? %>
+<% if user_signed_in? && (@collection.user == current_user || current_user.admin?) %>
     <%= link_to 'New Item', new_collection_item_path(@collection), class: 'btn btn-primary'%>
 <% end %>
 

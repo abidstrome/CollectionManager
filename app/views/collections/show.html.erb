@@ -8,8 +8,9 @@
 <% end %>
 
 <h2>Items</h2>
-<%= link_to 'Add Item', new_collection_item_path(@collection) if user_signed_in? %>
-
+ <% if user_signed_in? && (@collection.user == current_user || current_user.admin?) %>
+  <%= link_to 'Add Item', new_collection_item_path(@collection) if user_signed_in? %>
+ <% end %>
 <%= form_with(url: collection_path(@collection), method: :get, local: true) do |form| %>
   <div class="form-group">
     <%= form.label :filter, "Filter by name" %>

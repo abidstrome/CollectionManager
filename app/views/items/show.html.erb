@@ -1,4 +1,5 @@
 <h1><%= @item.name %></h1>
+
 <p>Tags: <%= @item.tag_list.join(', ') %></p>
 
 <% if @collection.custom_string1_state %>
@@ -50,18 +51,26 @@
 <% if @collection.custom_date3_state %>
   <p><%= @collection.custom_date3_name %>: <%= @item.custom_date3 %></p>
 <% end %>
+<% if user_signed_in? && (@collection.user == current_user || current_user.admin?) %>
+  <%= link_to 'Edit', edit_collection_item_path(@collection, @item), class: 'btn btn-secondary'%>
+  <%= link_to 'Delete', collection_item_path(@collection, @item), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
+<% end %>
+
 
 <h2>Likes</h2>
 <%= render 'likes/like_button', collection: @collection, item: @item %>
 
-<h2>Comments</h2>
-<%= render 'comments/form', collection: @collection, item: @item %>
 
+<h2>Comments</h2>
 <ul>
   <% @comments.each do |comment| %>
     <%= render 'comments/comment', comment: comment, collection: @collection, item: @item %>
   <% end %>
 </ul>
+<% if user_signed_in? %>
+  <h3>Add a comment</h3>
+  <%= render 'comments/form', collection: @collection, item: @item %>
+<% end %>
 <%= link_to 'Back', collection_items_path(@collection, @item) %>
 
 

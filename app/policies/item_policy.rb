@@ -24,13 +24,9 @@ class ItemPolicy < ApplicationPolicy
 
   class Scope < ApplicationPolicy::Scope
     def resolve
-      if user&.admin?
-        scope.all
-      elsif user.present?
-        scope.joins(:collection).where(collections: { user: user })
-      else
-        scope.all
-      end
+      
+      scope.all
+
     end
   end
 end
