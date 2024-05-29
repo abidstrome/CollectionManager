@@ -4,5 +4,8 @@
   <% else %>
     <%= button_to 'Like', collection_item_likes_path(@collection, @item), class: 'btn btn-primary' %>
   <% end %>
+  <p><%= @item.likes.count %> likes</p>
+<% else %>
+  <p><%= @item.likes.count %> likes</p>  
 <% end %>
-<p><%= @item.likes.count %> likes</p>
+

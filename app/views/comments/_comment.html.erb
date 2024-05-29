@@ -1,7 +1,7 @@
 <li>
   <p><strong><%= comment.user&.email %></strong></p>
   <p><%= comment.body %></p>
-  <% if comment.user == current_user || current_user.admin? %>
+  <% if current_user && (comment.user == current_user || current_user.admin?) %>
      <%= link_to 'Delete', collection_item_comment_path(@collection, @item, comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
   <% end %>
 </li>
