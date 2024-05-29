@@ -8,13 +8,17 @@ class HomeController < ApplicationController
     end
 
     def search
-        @query = params[:query]
-        if @query.present?
-          @items = Item.search_by_name_comments_and_tags(@query)
-        else
-          @items = Item.none
-        end
-       @items = policy_scope(@items) if user_signed_in?
+      @query = params[:query]
+      if @query.present?
+        items_scope = policy_scope(Item)
+        @items = items_scope.search_by_name_comments_and_tags(@query)
+  
+        collections_scope = policy_scope(Collection)
+        @collections = collections_scope.search_by_name_or_description(@query)
+      else
+        @items = Item.none
+        @collections = Collection.none
+      end
     end
     
     

@@ -11,5 +11,6 @@ class Item < ApplicationRecord
                    against: [:name],
                    associated_against: { tags: :name, comments: :body},
                    using: { tsearch: { prefix: true } }
+
                 
 end

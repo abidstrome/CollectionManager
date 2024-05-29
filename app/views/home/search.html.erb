@@ -1,11 +1,22 @@
 <h1>Search Results for "<%= @query %>"</h1>
 
-<% if @items.any? %>
+<% if @items.any? || @collections.any? %>
   <ul>
-    <% @items.each do |item| %>
-      <li><%= link_to item.name, collection_item_path(item.collection, item) %></li>
+   <% @items.each do |item| %>
+      <li>
+        <%= link_to item.name, [item.collection, item] %>
+        <p><%= item.tag_list.join(', ') %></p>
+      </li>
     <% end %>
   </ul>
-<% else %>
-  <p>No items found.</p>
-<% end %>
+  <ul>
+    <% @collections.each do |collection| %>
+      <li>
+        <%= link_to collection.name, collection %>
+        <p><%= collection.description %></p>
+      </li>
+    <% end %>
+  </ul>
+  <% else %>
+    <p>Not found.</p>
+  <% end %>
