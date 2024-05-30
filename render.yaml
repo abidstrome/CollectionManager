@@ -1,6 +1,6 @@
 databases:
   - name: treasurex
-    databaseName: treasurexDB
+    databaseName: treasurexproduction
     user: collectionmanageruser
     plan: free
 
