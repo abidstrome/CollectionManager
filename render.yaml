@@ -1,12 +1,12 @@
 databases:
-  - name: collectionmanagerapp
-    databaseName: collectionmanagerappproduction
+  - name: treasurex
+    databaseName: treasurexDB
     user: collectionmanageruser
     plan: free
 
 services:
   - type: web
-    name: collectionmanagerapp
+    name: treasurex
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
@@ -15,7 +15,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: collectionmanagerapp
+          name: treasurex
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
