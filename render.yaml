@@ -1,7 +1,7 @@
 databases:
   - name: collectionmanagerapp
     databaseName: collectionmanagerappproduction
-    user: postgres
+    user: collectionmanageruser
     plan: free
 
 services:
