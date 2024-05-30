@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'search', to: 'home#search', as: 'search'
 
   devise_for :users
-
   resources :users, only: [:show] do
     resources :collections, except: [:index, :show]
   end
@@ -28,4 +27,5 @@ Rails.application.routes.draw do
       end
     end
   end
+  
 end

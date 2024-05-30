@@ -8,3 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 Category.create([{ name: 'Books' }, { name: 'Signs' }, { name: 'Silverware' }, { name: 'Coins' }, { name: 'Other' }])
+admin_user = { email: 'abidmahamood88@gmail.com', password: '123456', role: :admin }
+
+user = User.find_or_initialize_by(email: admin_user[:email])
+user.update!(admin_user)
+
+puts 'Admin user has been created'

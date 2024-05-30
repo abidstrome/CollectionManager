@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
         if @comment.save
             redirect_to collection_item_path(@collection, @item), notice: 'Comment added.'
-
+          
         else
             redirect_to collection_item_path(@collection, @item), alert: 'Unable to add comment.'
 

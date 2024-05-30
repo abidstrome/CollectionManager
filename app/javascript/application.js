@@ -5,10 +5,6 @@ import "controllers"
 import "jquery" 
 import "confirm"
 
-
-
-
-
 Turbo.start();
 
 document.addEventListener('turbo:load', () => {
