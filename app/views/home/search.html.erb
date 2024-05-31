@@ -2,13 +2,28 @@
 
 <% if @items.any? || @collections.any? %>
   <ul>
+  
    <% @items.each do |item| %>
       <li>
         <%= link_to item.name, [item.collection, item] %>
-        <p><%= item.tag_list.join(', ') %></p>
+        <% if item.tag_list.any? {|tag| tag.include?(@query)}%>
+          <p><strong>Matching Tags:</strong>
+          <%= item.tag_list.select {|tag| tag.include?(@query)}.join(', ')%></p>
+        <% end %>
+        <%if item.comments.any? {|comment| comment.body.include?(@query)}%> 
+          <p><strong>Matching Comments:</strong>
+          <ul>
+            <% item.comments.each do |comment| %>
+             <% if comment.body.include?(@query )%>
+              <li><%= comment.body %></li>
+             <% end %>
+            <% end %>
+          </ul>
+        <% end %>              
       </li>
     <% end %>
   </ul>
+  
   <ul>
     <% @collections.each do |collection| %>
       <li>

@@ -1,55 +1,55 @@
 <h1><%= @item.name %></h1>
 
-<p>Tags: <%= @item.tag_list.join(', ') %></p>
+<p><strong>Tags:</strong> <%= @item.tag_list.join(', ') %></p>
 
 <% if @collection.custom_string1_state %>
-  <p><%= @collection.custom_string1_name %>: <%= @item.custom_string1 %></p>
+  <p><strong><%= @collection.custom_string1_name %>:</strong> <%= @item.custom_string1 %></p>
 <% end %>
 <% if @collection.custom_string2_state %>
-  <p><%= @collection.custom_string2_name %>: <%= @item.custom_string2 %></p>
+  <p><strong><%= @collection.custom_string2_name %>:</strong> <%= @item.custom_string2 %></p>
 <% end %>
 <% if @collection.custom_string3_state %>
-  <p><%= @collection.custom_string3_name %>: <%= @item.custom_string3 %></p>
+  <p><strong><%= @collection.custom_string3_name %>:</strong> <%= @item.custom_string3 %></p>
 <% end %>
 
 <% if @collection.custom_text1_state %>
-  <p><%= @collection.custom_text1_name %>: <%= @item.custom_text1 %></p>
+  <p><strong><%= @collection.custom_text1_name %>:</strong> <%= @item.custom_text1 %></p>
 <% end %>
 <% if @collection.custom_text2_state %>
-  <p><%= @collection.custom_text2_name %>: <%= @item.custom_text2 %></p>
+  <p><strong><%= @collection.custom_text2_name %>:</strong> <%= @item.custom_text2 %></p>
 <% end %>
 <% if @collection.custom_text3_state %>
-  <p><%= @collection.custom_text3_name %>: <%= @item.custom_text3 %></p>
+  <p><strong><%= @collection.custom_text3_name %>:</strong> <%= @item.custom_text3 %></p>
 <% end %>
 
 <% if @collection.custom_int1_state %>
-  <p><%= @collection.custom_int1_name %>: <%= @item.custom_int1 %></p>
+  <p><strong><%= @collection.custom_int1_name %>:</strong> <%= @item.custom_int1 %></p>
 <% end %>
 <% if @collection.custom_int2_state %>
-  <p><%= @collection.custom_int2_name %>: <%= @item.custom_int2 %></p>
+  <p><strong><%= @collection.custom_int2_name %>:</strong> <%= @item.custom_int2 %></p>
 <% end %>
 <% if @collection.custom_int3_state %>
-  <p><%= @collection.custom_int3_name %>: <%= @item.custom_int3 %></p>
+  <p><strong><%= @collection.custom_int3_name %>:</strong> <%= @item.custom_int3 %></p>
 <% end %>
 
 <% if @collection.custom_bool1_state %>
-  <p><%= @collection.custom_bool1_name %>: <%= @item.custom_bool1 ? 'Yes' : 'No' %></p>
+  <p><strong><%= @collection.custom_bool1_name %>:</strong> <%= @item.custom_bool1 ? 'Yes' : 'No' %></p>
 <% end %>
 <% if @collection.custom_bool2_state %>
-  <p><%= @collection.custom_bool2_name %>: <%= @item.custom_bool2 ? 'Yes' : 'No' %></p>
+  <p><strong><%= @collection.custom_bool2_name %>:</strong> <%= @item.custom_bool2 ? 'Yes' : 'No' %></p>
 <% end %>
 <% if @collection.custom_bool3_state %>
-  <p><%= @collection.custom_bool3_name %>: <%= @item.custom_bool3 ? 'Yes' : 'No' %></p>
+  <p><strong><%= @collection.custom_bool3_name %>:</strong> <%= @item.custom_bool3 ? 'Yes' : 'No' %></p>
 <% end %>
 
 <% if @collection.custom_date1_state %>
-  <p><%= @collection.custom_date1_name %>: <%= @item.custom_date1 %></p>
+  <p><strong><%= @collection.custom_date1_name %>:</strong> <%= @item.custom_date1 %></p>
 <% end %>
 <% if @collection.custom_date2_state %>
-  <p><%= @collection.custom_date2_name %>: <%= @item.custom_date2 %></p>
+  <p><strong><%= @collection.custom_date2_name %>:</strong> <%= @item.custom_date2 %></p>
 <% end %>
 <% if @collection.custom_date3_state %>
-  <p><%= @collection.custom_date3_name %>: <%= @item.custom_date3 %></p>
+  <p><strong><%= @collection.custom_date3_name %>:</strong> <%= @item.custom_date3 %></p>
 <% end %>
 <% if user_signed_in? && (@collection.user == current_user || current_user.admin?) %>
   <%= link_to 'Edit', edit_collection_item_path(@collection, @item), class: 'btn btn-secondary'%>
