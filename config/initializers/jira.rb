@@ -3,6 +3,6 @@ JIRA_CLIENT = JIRA::Client.new(
     context_path: '',
     auth_type: :basic,
     username: 'abidmahamood88@gmail.com',
-    password: 'ATATT3xFfGF02x-nikJeAy7uNhGc8-KnIFIyEORKvZEPlJJ0ZhChibo2Yi8AdZFrJlDrDECBXIZmMng1FNJsCtplKNlQaNSXTx3_BV5JFEFxTriEttNNeMYXRbZO4jvHwqyqwNHgwaQP8L1O4sZEhYrGUbKpP663ENFIWf7EFEpVzTlzX6lOehY=701BE9E4'
+    password: 'ATATT3xFfGF03v5GPCFmERDbIqsdZZbZ9SND6HHYo52JFOnXtm1-x3UTmrJmDUTyGkeBxWCrE6fCGw369aXGx15CtGiUF8jGSQOYuKFV6VxeG-rJA6lse3lw1zl99HnMzJxjkQYUNNTpx0yPAfKLfHmYUyeUoqcMz6mYtKNHzpX44DY1BGcAmZQ=6F8349C8'
 
 )
