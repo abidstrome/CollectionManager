@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_25_234507) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_08_003855) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -136,6 +136,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_25_234507) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "summary"
+    t.string "priority"
+    t.string "status"
+    t.string "jira_id"
+    t.string "link"
+    t.string "collection_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "jira_ticket_url"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -170,4 +184,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_25_234507) do
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
   add_foreign_key "taggings", "tags"
+  add_foreign_key "tickets", "users"
 end

@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :collections, except: [:index, :show]
   end
-
+  resources :tickets,only: [:new, :create, :index]
+  get 'create_support_ticket', to: 'tickets#new'
+  get 'user_tickets', to: 'tickets#index'
   resources :collections do
     resources :items do
       resources :comments, only: [:create, :destroy]

@@ -22,7 +22,9 @@
               <%= link_to 'Manage Users', admin_users_path, class: 'nav-link' %>
             </li>
           <% end %>
-
+          <li class= "nav-item">
+            <%= link_to 'Create Support Ticket', create_support_ticket_path, class:'nav-link'%>
+          </li>
           <li class="nav-item">
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: 'nav-link' %>
           </li>

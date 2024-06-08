@@ -1,0 +1,21 @@
+<h1>Create Support Ticket</h1>
+
+<%= form_with(model: @ticket, local: true) do |form| %>
+  <%= render 'layouts/errors', object: @ticket %>
+
+  <div class="field">
+    <%= form.label :summary %>
+    <%= form.text_field :summary, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :priority %>
+    <%= form.select :priority, [['High', 'High'], ['Medium','Medium'],['Low', 'Low']] %>
+  </div>
+
+  <%= form.hidden_field :collection_name, value: @collection_name %>
+
+  <div class="actions">
+    <%= form.submit 'Create Ticket' %>
+  </div>
+<% end %>

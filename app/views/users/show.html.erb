@@ -1,7 +1,7 @@
 <h1><%= @user.email %>'s Collections</h1>
 
 <%= link_to 'New Collection', new_user_collection_path(@user), class: 'btn btn-primary' %>
-
+<%= link_to 'My Tickets', user_tickets_path, class: 'btn btn-secondary'%>
 <ul>
   <% @collections.each do |collection| %>
     <li>

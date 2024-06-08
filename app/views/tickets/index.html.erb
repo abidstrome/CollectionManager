@@ -1,0 +1,27 @@
+<h1>My Tickets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Summary</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Link</th>
+      <th>Jira Ticket</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.summary %></td>
+        <td><%= ticket.priority %></td>
+        <td><%= ticket.status %></td>
+        <td><%= link_to 'View Page', ticket.link %></td>
+        <td><%= link_to ticket.jira_ticket_url, ticket.jira_ticket_url %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @tickets %>
