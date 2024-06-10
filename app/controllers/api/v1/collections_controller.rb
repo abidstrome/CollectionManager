@@ -39,6 +39,7 @@ class Api::V1::CollectionsController < ApplicationController
     def destroy
         @collection.destroy
         head :no_content
+    end
 
 
     private
