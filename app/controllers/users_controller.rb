@@ -17,6 +17,18 @@ class UsersController < ApplicationController
 
     end
 
+    def generate_api_token
+        @user = User.find(params[:id])
+        authorize @user
+        @user.generate_api_token
+
+        if @user.save
+            redirect_to @user, notice: 'New API token generated'
+        else
+            redirect_to @user, alert: 'Failed to generate new API token'
+        end
+    end
+
     private
 
     # def set_user

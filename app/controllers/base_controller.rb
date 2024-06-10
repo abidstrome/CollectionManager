@@ -28,5 +28,12 @@ class BaseController < ActionController::Base
       flash[:alert] = "You are not authorized to perform this action."
       redirect_to(request.referrer || root_path)
     end
+
+    def user_not_authorized(exception)
+      policy_name = exception.policy.class.to_s.underscore
+      Rails.logger.info "Not authorized: #{policy_name}##{exception.query}"
+      render json: { error: "You are not authorized to perform this action." }, status: :forbidden
+    end
+    
   end
   

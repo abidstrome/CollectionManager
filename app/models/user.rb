@@ -29,5 +29,9 @@ class User < ApplicationRecord
     liked_items.include?(item)
 
   end
+
+  def generate_api_token
+    self.api_token = SecureRandom.hex(30)
+  end
  
 end

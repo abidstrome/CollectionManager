@@ -30,6 +30,10 @@ class UserPolicy < ApplicationPolicy
     def remove_admin?
       user.admin? && user != record
     end
+
+    def generate_api_token?
+      user == record || user.admin?
+    end
     
   class Scope < ApplicationPolicy::Scope
     # NOTE: Be explicit about which records you allow access to!

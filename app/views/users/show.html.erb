@@ -2,6 +2,12 @@
 
 <%= link_to 'New Collection', new_user_collection_path(@user), class: 'btn btn-primary' %>
 <%= link_to 'My Tickets', user_tickets_path, class: 'btn btn-secondary'%>
+<p>
+  <strong>API Token:</strong>
+  <%= @user.api_token %>
+  <%= link_to 'Generate New API Token', generate_api_token_user_path(@user), method: :get, class: 'btn btn-primary'%>
+</p>
+
 <ul>
   <% @collections.each do |collection| %>
     <li>
